@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="backbutton">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>Edit Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <img class="profilePicture" src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/248741281_6174024649334735_6068072151303911633_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGR3wdoAhyeOj6B7gU5OpiK0qWLv5KPFGDSpYu_ko8UYL5oRnyvq5QcrVae-cQhHiLJq1umkMxM8V7UaXMW3wiH&_nc_ohc=iby1rok1gRUAX-6KKjL&_nc_ht=scontent.fcrk1-1.fna&oh=1e81a88f8d5fadfeaecc3471b56c7d43&oe=619A04B6" alt="">
+    <ion-button class="editButton">
+      Edit
+      <ion-icon name=pencil></ion-icon>
+    </ion-button>
+
+    <ion-item>
+      <ion-label position="floating">Name:</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Mobile Number:</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Userlevel</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="f">Admin</ion-select-option>
+        <ion-select-option value="m">Employee</ion-select-option>
+      </ion-select>
+    </ion-item>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>Declined Order Reasons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Enter Reason:</ion-label>
+    <ion-input [(ngModel)]="reason"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-list-header>
+      MedToCart Declined Reason List
+    </ion-list-header>
+    <ion-item *ngFor="let items of reasonList">
+      <ion-label>
+        {{items.reason}}
+      </ion-label>
+      <ion-button slot=end (click)="deletereason(items.id)">
+        <ion-icon name=trash>
+        </ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button slot=end (click)="saveReason()">Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

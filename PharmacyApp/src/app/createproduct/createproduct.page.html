@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="backbutton">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>Create Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-text-center" *ngIf="!isUploading && !isUploaded">
+    <ion-card-header>
+      <ion-card-title>Choose Images to Upload</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="success" shape="round" size="large" class="upload">
+        <span>Select Image</span>
+        <!-- <input id="uploadBtn" type="file" class="upload" (change)="uploadFile($event.target.files)" /> -->
+        <input id="uploadBtn" type="file" class="upload" (change)="fileChange($event)" />
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-text-center" *ngIf="!isUploading && isUploaded">
+    <ion-card-header>
+        <ion-card-title>
+          <b>{{ fileName }}</b> Uploaded!
+        </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+    <h2 class="ion-text-center">Product Image</h2>
+
+    <ion-card color="light" class="ion-text-center" *ngIf="img1 != null">
+      <ion-card-header>
+        {{imagename}}
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="img1" />
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input [(ngModel)]="productname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-input [(ngModel)]="productdescription"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="stacked">Price</ion-label>
+    <ion-input [(ngModel)]="productprice" type=float></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Prescription Needed?</ion-label>
+      <ion-checkbox slot=end (ionChange)="prescription($event)" checked={{productprescription}}></ion-checkbox>
+    </ion-item>
+    <ion-button (click)="uploadFile()">Upload</ion-button>
+</ion-content>

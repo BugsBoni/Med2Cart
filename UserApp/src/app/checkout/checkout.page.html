@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color=primary>
+    <ion-buttons slot="start" class="backbutton">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Orders
+      </ion-label>
+    </ion-list-header>
+    <ion-item  *ngFor="let items of temporder">
+      <ion-label>
+        {{items.productname}} x {{items.quantity}}
+      </ion-label>
+      <ion-label slot=end>
+        P{{items.total}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="selectedPayment == 'cod'">
+      <ion-label>
+        Shipping Fee
+      </ion-label>
+      <ion-label slot=end>
+        {{shippingFee}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines=none>
+      <ion-label slot=end>
+        P{{total + shippingFee}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-radio-group value="cod" (ionChange)="payment($event)">
+      <ion-list-header>
+        <ion-label>Mode of Transaction</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Cash On Delivery</ion-label>
+        <ion-radio slot="start" value="cod"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Pick Up</ion-label>
+        <ion-radio slot="start" value="pup"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-item *ngIf="selectedPayment == 'cod'">
+    <ion-label>
+      <p>Address</p>
+     <ion-input [(ngModel)]="address"></ion-input>
+    </ion-label>
+  </ion-item>
+    <div class="note">
+      Note: If You're purchasing drugs with needed prescription please attach a picture/screenshot of your prescription, we will cancel orders without the needed prescription.
+    </div>
+  <ion-item>
+    <input id="uploadBtn" type="file" class="upload" (change)="fileChange($event)" />
+  </ion-item>
+  <div class="checkout">
+    <ion-button (click)="endTransac()">
+      Checkout
+    </ion-button>
+  </div>
+</ion-content>

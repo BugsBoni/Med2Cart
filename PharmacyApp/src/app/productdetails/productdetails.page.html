@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>{{productname}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-card color="light" class="ion-text-center">
+      <ion-card-header>
+        <ion-item>
+          <ion-card-title>
+            {{ name }}
+          </ion-card-title>
+        </ion-item>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <!-- <img [src]="item.filepath" /> -->
+        <img [src]="images" />
+        <!-- <a [href]="item.filepath" target="_blank" rel="noopener">Download</a> -->
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+      <ion-list-header class="title">
+        Product Details
+      </ion-list-header>
+      <ion-item>
+        <ion-checkbox (ionChange)="prescription($event)" checked={{productprescription}}></ion-checkbox>
+        <ion-label class="label">| Prescription Needed</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="label">
+          Name: 
+        </ion-label>
+        <ion-input [(ngModel)]="name" class="label">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="label">
+          Price:
+        </ion-label>
+        <ion-input [(ngModel)]="price" type=number class="label">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="label">
+          Description: 
+        </ion-label>
+        <ion-textarea [(ngModel)]="description" class="label">
+        </ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" (click)="uploadFile()">Save</ion-button>
+  </div>
+</ion-content>

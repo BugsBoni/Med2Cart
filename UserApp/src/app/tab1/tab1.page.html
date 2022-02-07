@@ -1,0 +1,69 @@
+<div class="header">
+
+  <div class="head">
+    <ion-item lines="none">
+      <img src="../../assets/images/logo admin text.png" alt="" class="logomed">
+      <ion-icon name="notifications" slot="end" class="notif"></ion-icon>
+    </ion-item>
+  </div>
+  
+  <ion-item lines=none>
+    <ion-searchbar class="searchh" (ionChange)="search()" [(ngModel)]="searchword"></ion-searchbar>
+  </ion-item>
+</div>
+
+
+<ion-content [fullscreen]="true">
+  <ion-slides [options]="slideOpts" *ngFor="let item of announcementList" class="announcementSlide">
+    <ion-slide>
+      <img src="{{item.image}}" alt="">
+    </ion-slide>
+    
+  </ion-slides>
+
+  <!-- <ion-button class="uploadDiv">
+    <ion-icon slot=start name="camera"></ion-icon>
+    Upload your Prescription
+  </ion-button> -->
+  <div >
+    <ion-grid  *ngFor="let item of finalList">
+      <ion-row *ngIf="!item.prescription" class="container" (click)="navToBuy(item.id,item.productname,item.price,item.description,item.image,item.prescription)">
+        <ion-col size=4>
+          <div class="imagecontainer">
+            <img src="{{item.image}}" alt="">
+          </div>
+        </ion-col>
+        <ion-col size=8>
+          <ion-grid>
+            <ion-row>
+              <ion-label class="itemname">{{item.productname}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="itemprice">Php. {{item.price}}.00</ion-label>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="item.prescription" class="container2" (click)="navToBuy(item.id,item.productname,item.price,item.description,item.image,item.prescription)">
+        <ion-col size=4>
+          <div class="imagecontainer">
+            <img src="{{item.image}}" alt="">
+          </div>
+        </ion-col>
+        <ion-col size=8>
+          <ion-grid>
+            <ion-row>
+              <ion-label class="itemname">{{item.productname}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="itemprice">Php. {{item.price}}.00</ion-label>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  
+</ion-content>

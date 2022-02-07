@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="backbutton">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>Add Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="ion-text-center" *ngIf="!isUploading && !isUploaded">
+    <ion-card-header>
+      <ion-card-title>Choose Images to Upload</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="success" shape="round" size="large" class="upload">
+        <span>Select Image</span>
+        <!-- <input id="uploadBtn" type="file" class="upload" (change)="uploadFile($event.target.files)" /> -->
+        <input id="uploadBtn" type="file" class="upload" (change)="fileChange($event)" />
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-text-center" *ngIf="!isUploading && isUploaded">
+    <ion-card-header>
+        <ion-card-title>
+          <b>{{ fileName }}</b> Uploaded!
+        </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+    <h2 class="ion-text-center">Employee Image</h2>
+
+    <ion-card color="light" class="ion-text-center" *ngIf="img1 != null">
+      <ion-card-header>
+        {{imagename}}
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="img1" />
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select placeholder="Select One" (ionChange)="selectGender($event)">
+        <ion-select-option value="Male">Male</ion-select-option>
+        <ion-select-option value="Female">Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Birthdate</ion-label>
+      <ion-datetime display-timezone="utc" [(ngModel)]="birthdate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Mobile Number</ion-label>
+      <ion-input [(ngModel)]="mobilenumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Userlevel</ion-label>
+      <ion-select placeholder="Select One" (ionChange)="selectLevel($event)">
+        <ion-select-option value="Admin">Admin</ion-select-option>
+        <ion-select-option value="Employee">Employee</ion-select-option>
+        <ion-select-option value="Rider">Courier</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input [(ngModel)]="password2" type="password"></ion-input>
+    </ion-item>
+      <ion-button expand=full (click)="saveEmployee()">Save</ion-button>
+</ion-content>

@@ -1,0 +1,33 @@
+<div class="header">
+  <ion-item lines="none">
+    <img src="../../assets/images/logo admin text.png" alt="" class="logomed">
+    <ion-icon name="notifications" slot="end" class="notif"></ion-icon>
+  </ion-item>
+</div>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" value="pending" *ngIf="global.loggedin">
+    <ion-segment-button value="pending">
+      <ion-label class="tab">Pending</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="completed">
+      <ion-label class="tab">Completed</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="cancelled">
+      <ion-label class="tab">Cancelled</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-button *ngIf="!global.loggedin" expand="full" (click)="login()">Login</ion-button>
+  <div *ngIf="global.loggedin">
+    <ion-item lines=none (click)="navToOrders(items.id)" *ngFor="let items of orderList">
+        <ion-label *ngIf="items.status == segment">
+          <p>Transaction#</p>
+          M2C{{items.id}}
+        </ion-label>
+        <ion-label *ngIf="items.status == segment" slot=end>
+          {{items.total}}
+        </ion-label>
+    </ion-item>
+  </div>
+</ion-content>

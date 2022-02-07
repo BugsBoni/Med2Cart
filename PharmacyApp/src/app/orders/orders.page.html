@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" value="pending">
+    <ion-segment-button value="pending">
+      <ion-label class="tab">Pending</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="accepted">
+      <ion-label class="tab">Accepted</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="completed">
+      <ion-label class="tab">Completed</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="declined">
+      <ion-label class="tab">Declined</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-item (click)="nav2OrderInfo(items.id)" *ngFor="let items of orderList">
+    <ion-label>
+      <p>Transaction no.</p>
+      M2C{{items.id}}
+    </ion-label>
+    <ion-label class="price" slot=end>
+      Php. {{items.total}}.00
+    </ion-label>
+  </ion-item>
+</ion-content>

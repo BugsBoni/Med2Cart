@@ -1,0 +1,45 @@
+
+<div class="header">
+  <ion-item lines="none">
+    <img src="../../assets/images/logo admin text.png" alt="" class="logomed">
+    <ion-icon name="information-circle" slot="end" class="notif" (click)="faqs()"></ion-icon>
+  </ion-item>
+</div>
+
+<ion-content>
+  <div *ngIf="!global.loggedin">
+    <ion-button expand=full (click)="login()">Login</ion-button>
+  </div>
+  <div *ngIf="global.loggedin">
+    <img class="profilePicture" src="{{global.image}}" alt="">
+    <ion-button class="editButton">
+      Edit
+      <ion-icon name=pencil></ion-icon>
+    </ion-button>
+     
+    <ion-item>
+      <ion-label>
+        <p>Name:</p>
+        {{global.name}}
+      </ion-label>
+        <ion-button slot=end (click)="updateName()">
+          <ion-icon name=pencil></ion-icon>
+        </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <p>Email:</p>
+        {{global.email}}
+      </ion-label>
+        <ion-button slot=end (click)="updateEmail()">
+          <ion-icon name=pencil></ion-icon>
+        </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Mobile number:</p>
+        {{global.mobilenumber}}
+      </ion-label>
+    </ion-item>
+  </div>
+  </ion-content>

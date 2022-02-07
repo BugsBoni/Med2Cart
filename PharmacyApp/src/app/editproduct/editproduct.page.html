@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+   </ion-buttons>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- Default Searchbar -->
+<ion-searchbar (ionChange)="search()" [(ngModel)]="searchword"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let items of finalList">
+    <ion-thumbnail><img src={{items.image}} alt=""></ion-thumbnail>
+    <ion-label>
+      <h3>{{items.name}}</h3>
+      <p>ProductID: {{items.id}}</p>
+    </ion-label>
+    <div slot=end>
+      <ion-button (click)="openProductDetails(items.id,items.name)">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
+      <ion-button (click)="deleteProduct(items.id,items.name)">
+        <ion-icon name="trash" ></ion-icon>
+      </ion-button>
+    </div>
+  </ion-item>
+</ion-list>
+</ion-content>

@@ -1,0 +1,132 @@
+.totalDiv{
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+    
+}
+.totalDiv ion-label{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 0;
+    margin-top: -24px;
+}
+.totalDiv ion-button{
+    height: 30px;
+    margin-top: -10px;
+}
+.container{
+    background-color: #68c3c0;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+    color: white;
+}
+.container2{
+    background-color: #E28A8A;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+    color: white;
+}
+.imagecontainer{
+    background-color: white;
+    margin: 4px;
+    height: 95%;
+    width: 95%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    text-align: center;
+}
+.imagecontainer img{
+    max-height: 110px;
+    
+    border-radius: 10px;
+    margin-top: 9px;
+
+}
+.container ion-row{
+    height: 99%;
+}
+.itemname{
+    font-size: 25px;
+    overflow: auto;
+    font-weight: bold;
+}
+.itemprice{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.listitem{
+    margin-left: 1em;
+    margin-right: 1em;
+    background: #68c3c0;
+    color: white;
+    border-radius: 10px;
+}
+.listitem2{
+    margin-left: 1em;
+    margin-right: 1em;
+    background: #E28A8A;
+    color: white;
+    border-radius: 10px;
+}
+.img{
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+    height: 45px;
+    width: 45px;
+    margin-left: 0.5em;
+}
+.iteminfo{
+    margin-left: -1em;
+}
+.productname{
+    font-weight: bold;
+    font-size: 20px;
+}
+.productprice{
+    font-weight: bold;
+    font-size: 12px;
+
+}
+.trashicon{
+    font-size: 25px;
+    float: right;
+    margin-top: 11px;
+}
+.img img{
+    
+    max-height: 35px;
+    border-radius: 10px;
+}
+.line{
+    width: 90%;
+    height: 10px;
+    position: absolute;
+    bottom: 100px;
+    border-top: 1px solid;
+    margin: 1em;
+    margin-bottom: 0px;
+}
+.logomed{
+    width: 50%;
+}
+.notif{
+    padding-top: 0.5em;
+    font-size: 30px;
+    color: #68c3c0;
+
+}
+
+.header{
+    padding: 12px;
+    margin-top: 5px;
+}

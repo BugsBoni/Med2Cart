@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Account</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="settings()">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+   </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <img class="profilePicture" src={{image}} alt="">
+    <ion-button class="editButton">
+      Edit
+      <ion-icon name=pencil></ion-icon>
+    </ion-button>
+
+    <ion-item>
+      <ion-label>
+        <p>Name:</p>
+        {{name}}
+      </ion-label>
+        <ion-button slot=end (click)="updateName()">
+          <ion-icon name=pencil></ion-icon>
+        </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Email:</p>
+        {{email}}
+      </ion-label>
+        <ion-button slot=end (click)="updateEmail()">
+          <ion-icon name=pencil></ion-icon>
+        </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Mobile number:</p>
+        {{mobilenumber}}
+      </ion-label>
+        <ion-button slot=end (click)="updateMobileNumber()">
+          <ion-icon name=pencil></ion-icon>
+        </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>User-level:</p>
+        {{userlevel}}
+      </ion-label>
+        <ion-button slot=end *ngIf="userlevel == 'Admin'">
+          <ion-icon name=pencil></ion-icon>
+        </ion-button>
+    </ion-item>
+  </ion-content>

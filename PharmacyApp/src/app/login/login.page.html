@@ -1,0 +1,15 @@
+
+<ion-content>
+  <div class="centerfields">
+    <img src="../../assets/images/Logo admin.png" alt="" class="logo1">
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input [(ngModel)]="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input [(ngModel)]="password" type="password"></ion-input>
+  </ion-item>
+  <ion-button expand=full (click)="login()">Login</ion-button>
+</div>
+</ion-content>

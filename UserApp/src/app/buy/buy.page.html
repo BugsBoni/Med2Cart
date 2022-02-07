@@ -1,0 +1,103 @@
+<div class="header">
+  <ion-item lines="none">
+    <img src="../../assets/images/logo admin text.png" alt="" class="logomed">
+    <ion-icon name="close" (click)="back()" slot="end" class="notif"></ion-icon>
+  </ion-item>
+</div>
+
+<ion-content>
+
+
+  
+  <div class="boxcontainer" *ngIf="prescription; else notprescription">
+      <div class="imgcontainer">
+        <img src="{{image}}" alt="">
+      </div>
+      <div class="itemname">
+        <ion-label>
+          {{productname}}
+        </ion-label>
+      </div>
+      <div class="itemprice">
+        <ion-label>
+          P{{price}}
+        </ion-label>
+      </div>
+      <div class="itemdescription">
+        <ion-label>
+         {{description}}
+        </ion-label>
+      </div>
+  </div>
+
+    <ng-template #notprescription >
+      <div class="boxcontainer2" >
+        <div class="imgcontainer">
+          <img src="{{image}}" alt="">
+        </div>
+        <div class="itemname">
+          <ion-label>
+            {{productname}}
+          </ion-label>
+        </div>
+        <div class="itemprice">
+          <ion-label>
+            P{{price}}
+          </ion-label>
+        </div>
+        <div class="itemdescription">
+          <ion-label>
+            {{description}}
+          </ion-label>
+        </div>
+      </div>
+      <ion-label>{{ prescription }}</ion-label>
+      
+    </ng-template>
+  
+
+  
+
+
+  
+
+
+  <div class="line1">
+
+  </div>
+  <div>
+    <ion-grid>
+      <ion-row class="rowbtns">
+        <ion-col size="7" class="btns">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button class="addbtn" (click)="incrs()">
+                  +
+                </ion-button>
+
+              </ion-col>
+              <ion-col class="quantitybtn">
+                <ion-label >
+                  {{quantity}}
+                </ion-label>
+                
+              </ion-col>
+              <ion-col>
+                <ion-button class="minusbtn1" color=danger (click)="dcrs()">
+                  -
+                </ion-button>
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button (click)='order()' class="add2cartbtn">
+            Add To Cart
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

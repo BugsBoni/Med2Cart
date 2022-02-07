@@ -1,0 +1,78 @@
+<div class="header">
+  <ion-item lines="none">
+    <img src="../../assets/images/logo admin text.png" alt="" class="logomed">
+    
+  </ion-item>
+  <ion-item lines=none>
+    <ion-searchbar class="searchh" (ionChange)="search()" [(ngModel)]="searchword"></ion-searchbar>
+  </ion-item>
+</div>
+
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="nav2Create()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+<ion-list>
+
+  <ion-grid *ngFor="let temp of finalList">
+    <ion-row *ngIf="temp.prescription == false" class="listitem">
+      <ion-col size="3" >
+        <div class="img">
+          <img src={{temp.image}} alt="">
+        </div>
+      </ion-col>
+      <ion-col size="6" class="iteminfo">
+        <ion-grid>
+          <ion-row>
+            <ion-label class="productname">
+              {{temp.name}}
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="productprice">
+              
+            </ion-label>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col size="3">
+        <ion-icon class="trashicon" (click)="openProductDetails(temp.id,temp.name)" name=pencil></ion-icon>
+          <ion-icon class="trashicon" (click)="deleteProduct(temp.id,temp.name)" name=trash></ion-icon>
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="temp.prescription == true" class="listitem2">
+      <ion-col size="3" >
+        <div class="img">
+          <img src={{temp.image}} alt="">
+        </div>
+      </ion-col>
+      <ion-col size="6" class="iteminfo">
+        <ion-grid>
+          <ion-row>
+            <ion-label class="productname">
+              {{temp.name}}
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="productprice">
+              
+            </ion-label>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col size="3">
+        <ion-icon class="trashicon" (click)="openProductDetails(temp.id,temp.name)" name=pencil></ion-icon>
+          <ion-icon class="trashicon" (click)="deleteProduct(temp.id,temp.name)" name=trash></ion-icon>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+</ion-list>
+</ion-content>

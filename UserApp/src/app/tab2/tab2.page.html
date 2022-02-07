@@ -1,0 +1,79 @@
+<div class="header">
+  <ion-item lines="none">
+    <img src="../../assets/images/logo admin text.png" alt="" class="logomed">
+    <ion-icon name="notifications" slot="end" class="notif"></ion-icon>
+  </ion-item>
+</div>
+
+<ion-content [fullscreen]="true">
+  <ion-grid *ngFor="let temp of temporder">
+    <ion-row *ngIf="temp.prescription == 'false'" class="listitem">
+      <ion-col size="3" >
+        <div class="img">
+          <img src={{temp.image}} alt="">
+        </div>
+      </ion-col>
+      <ion-col size="6" class="iteminfo">
+        <ion-grid>
+          <ion-row>
+            <ion-label class="productname">
+              {{temp.productname}}
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="productprice">
+              P{{temp.price}} x {{temp.quantity}}
+            </ion-label>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col size="3">
+          <ion-icon class="trashicon" (click)="reduceOrder(temp.id)" name=trash></ion-icon>
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="temp.prescription == 'true'" class="listitem2">
+      <ion-col size="3" >
+        <div class="img">
+          <img src={{temp.image}} alt="">
+        </div>
+      </ion-col>
+      <ion-col size="6" class="iteminfo">
+        <ion-grid>
+          <ion-row>
+            <ion-label class="productname">
+              {{temp.productname}}
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="productprice">
+              Php. {{temp.price}}.00 x {{temp.quantity}}
+            </ion-label>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col size="3">
+          <ion-icon class="trashicon" (click)="reduceOrder(temp.id)" name=trash></ion-icon>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="line"></div>
+  <div class="totalDiv">
+    <ion-item>
+      <ion-label>
+        Total: Php {{subtotal}}.00
+      </ion-label>
+      <ion-button slot=end (click)="login()" *ngIf="!global.loggedin">
+        Checkout
+      </ion-button>
+      <ion-button slot=end (click)="checkout()" *ngIf="global.loggedin">
+        Checkout
+      </ion-button>
+      <!-- <ion-button slot=end (click)="login()" *ngIf="!global.loggedin">
+        Checkout
+      </ion-button> -->
+    </ion-item>
+  </div>
+</ion-content>

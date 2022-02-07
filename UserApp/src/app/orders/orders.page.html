@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="backbutton">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let items of data">
+<img class="qrcode" src="https://lh3.googleusercontent.com/proxy/opxE2FIuzfwI_XsB62f7CLiAQBlJ23uUrb0KhmyaQK9lgw-qnlCa9r5CD6gj0dO5n18_NVQWnGExdYskt4o_7pVejWNN0eNgSKsl4cNi9DVdJYvVORM99S9owLQ" alt="">
+
+<ion-item lines=none>
+  <ion-label>
+    Mode Of Payment
+  </ion-label>
+  <ion-label slot=end *ngIf="items.payment == 'pup'">
+    Pick-Up
+  </ion-label>
+  <ion-label slot=end *ngIf="items.payment == 'cod'">
+    Cash On Delivery
+  </ion-label>
+</ion-item>
+<ion-list>
+  <ion-list-header>
+    <ion-label>
+      Orders
+    </ion-label>
+  </ion-list-header>
+  <ion-item *ngFor="let data of items.productname;let i = index">
+    <ion-label>
+      {{data}} x {{items.price[i]}}
+    </ion-label>
+    <ion-label slot=end>
+      P{{items.total[i]}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Shipping Fee
+    </ion-label>
+    <ion-label slot=end>
+      {{items.shipping}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Status
+    </ion-label>
+    <ion-label slot=end>
+      {{items.status}}
+    </ion-label>
+  </ion-item>
+  <ion-button color="success" (click)="createBarcode()" color=primary expand=full>
+    QR Code
+  </ion-button>
+  
+  <ion-button color="danger" *ngIf="items.status == 'pending'" (click)="cancelOrder(items.id)" expand=full>
+    Cancel
+  </ion-button>
+</ion-list>
+</div>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Employees
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar (ionChange)="search()" [(ngModel)]="searchword"></ion-searchbar>
+  <ion-list>
+        <ion-item>
+          <ion-label>Employees</ion-label>
+          <ion-button slot=end (click)="add()">
+            <ion-icon name=add></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item *ngFor="let items of finalList">
+          <ion-thumbnail slot=start>
+            <img src={{items.image}} alt="">
+          </ion-thumbnail>
+          <ion-label>
+            {{items.name}}
+            <p>{{items.userlevel}}</p>
+          </ion-label>
+          <ion-label slot=end>
+            <ion-button (click)="openEmployeeDetails(items.id,items.name)">
+              <ion-icon name="pencil"></ion-icon>
+            </ion-button>
+            <ion-button (click)="deleteEmployee(items.id,items.name)">
+              <ion-icon name=trash>
+              </ion-icon>
+            </ion-button>
+          </ion-label>
+        </ion-item>
+  </ion-list>
+</ion-content>
